@@ -1,0 +1,26 @@
+name = "max-core-gateway"
+main = "src/index.ts"
+compatibility_date = "2026-03-01"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+ENVIRONMENT = "production"
+APEX_DOMAIN = "max-institute.org"
+
+[[routes]]
+pattern = "max-institute.org/*"
+zone_name = "max-institute.org"
+
+[[routes]]
+pattern = "www.max-institute.org/*"
+zone_name = "max-institute.org"
+
+[[d1_databases]]
+binding = "CORE_DB"
+database_name = "max-core-registry-db"
+database_id = "CORE_DB_UUID_PLACEHOLDER"
+migrations_dir = "db/migrations"
+
+[[kv_namespaces]]
+binding = "SOVEREIGN_REGISTRY_KV"
+id = "CORE_KV_ID_PLACEHOLDER"
