@@ -3,4 +3,5 @@ export interface Env {
     SOVEREIGN_REGISTRY_KV: KVNamespace;
     ENVIRONMENT: string;
     APEX_DOMAIN: string;
+    HMAC_SECRET: string;
 }

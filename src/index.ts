@@ -16,16 +16,16 @@ export default {
 
         // 2. Handle System API Endpoints
         if (url.pathname.startsWith("/api/")) {
-            const apiResponse = await handleApiRequest(url, env);
+            const apiResponse = await handleApiRequest(request, url, env);
             return applySecurityHeaders(apiResponse.headers), apiResponse;
         }
 
         // 3. Render Portal-OS1 PWA Runtime Shell
         const htmlContent = renderPortalOS1Shell();
-        let response = new Response(htmlContent, {
-            headers: { "content-type": "text/html;charset=UTF-8" }
+        const response = new Response(htmlContent, {
+            headers: { "content-type": "text/html;charset=UTF-8" },
         });
 
         return applySecurityHeaders(response.headers), response;
-    }
+    },
 };
